@@ -309,8 +309,6 @@ export default function Navbar() {
 
                     <a
                       href="/economic-license/view"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="block rounded-xl px-4 py-3 text-[13px] font-bold text-[#172033] transition hover:bg-[#1257D6]/10 hover:text-[#1257D6]"
                     >
                       عرض
