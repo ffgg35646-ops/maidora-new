@@ -308,7 +308,7 @@ export default function Navbar() {
                   <div className="overflow-hidden rounded-2xl border border-[#E5EAF2] bg-white p-2 shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
 
                     <a
-                      href="/api/economic-license/file?type=view"
+                      href="/economic-license/view"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block rounded-xl px-4 py-3 text-[13px] font-bold text-[#172033] transition hover:bg-[#1257D6]/10 hover:text-[#1257D6]"
@@ -530,7 +530,7 @@ export default function Navbar() {
 
                 <div className="mr-3 mt-1 border-r-2 border-[#DCECF8] pr-2">
                   <a
-                    href="/api/economic-license/file?type=view"
+                    href="/economic-license/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 rounded-[11px] px-4 py-2.5 text-[11px] font-bold text-slate-500 transition hover:bg-[#F1F8FD] hover:text-[#397EA9]"
