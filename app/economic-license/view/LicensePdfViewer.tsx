@@ -53,6 +53,10 @@ function loadPdfJs(): Promise<PdfJsApi> {
     }
 
     if (existing) {
+      if (existing.dataset.loaded === "true") {
+        onReady()
+        return
+      }
       existing.addEventListener("load", onReady, { once: true })
       existing.addEventListener("error", () => reject(new Error("تعذر تحميل عارض PDF")), { once: true })
       return
@@ -62,7 +66,10 @@ function loadPdfJs(): Promise<PdfJsApi> {
     script.src = PDFJS_SCRIPT
     script.async = true
     script.dataset.maidoraPdfjs = "true"
-    script.onload = onReady
+    script.onload = () => {
+      script.dataset.loaded = "true"
+      onReady()
+    }
     script.onerror = () => reject(new Error("تعذر تحميل عارض PDF. تحقق من اتصال الإنترنت ثم أعد المحاولة."))
     document.head.appendChild(script)
   })
@@ -142,7 +149,7 @@ export default function LicensePdfViewer() {
           const pixelRatio = Math.min(window.devicePixelRatio || 1, 2)
 
           const wrapper = document.createElement("div")
-          wrapper.className = "mx-auto mb-5 flex w-fit max-w-full justify-center overflow-hidden rounded-sm bg-white shadow-lg"
+          wrapper.className = "mx-auto mb-5 flex w-max justify-center rounded-sm bg-white shadow-lg"
 
           const canvas = document.createElement("canvas")
           canvas.setAttribute("role", "img")
